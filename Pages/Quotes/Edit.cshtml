@@ -1,0 +1,84 @@
+﻿@page "{id:int?}"
+@model MegaDesk3.Pages.Quotes.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Quote</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Quote.ID" />
+            <div class="form-group">
+                <label asp-for="Quote.FirstName" class="control-label"></label>
+                <input asp-for="Quote.FirstName" class="form-control" />
+                <span asp-validation-for="Quote.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quote.LastName" class="control-label"></label>
+                <input asp-for="Quote.LastName" class="form-control" />
+                <span asp-validation-for="Quote.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quote.Width" class="control-label"></label>
+                <input asp-for="Quote.Width" class="form-control" />
+                <span asp-validation-for="Quote.Width" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quote.Depth" class="control-label"></label>
+                <input asp-for="Quote.Depth" class="form-control" />
+                <span asp-validation-for="Quote.Depth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quote.Drawers" class="control-label"></label>
+                <input asp-for="Quote.Drawers" class="form-control" />
+                <span asp-validation-for="Quote.Drawers" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quote.Materials" class="control-label"></label>
+                <select asp-for="Quote.Materials" class="form-control" >
+                    <option value="">Select a Material</option>
+                    <option value="1">Oak</option>
+                    <option value="2">Laminate</option>
+                    <option value="3">Pine</option>
+                    <option value="4">Rosewood</option>
+                    <option value="5">Veneer</option>
+                </select>
+
+                <span asp-validation-for="Quote.Materials" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quote.OrderDate" class="control-label"></label>
+                <input asp-for="Quote.OrderDate" class="form-control" />
+                <span asp-validation-for="Quote.OrderDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quote.RushOrderShipping" class="control-label"></label>
+                                <select asp-for="Quote.RushOrderShipping" class="form-control" >
+                                    <option value="">Select Shipping Days</option>
+                    <option value="3">3 Days</option>
+                    <option value="5">5 Days</option>
+                    <option value="7">7 Days</option>
+                    <option value="14">14 Days</option>
+                    </select>
+                <span asp-validation-for="Quote.RushOrderShipping" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
